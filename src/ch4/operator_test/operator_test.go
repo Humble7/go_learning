@@ -12,3 +12,16 @@ func TestCompareArray(t *testing.T) {
 	//t.Log(a == c)
 	t.Log(a == d)
 }
+
+const (
+	Readable = 1 << iota
+	Writable
+	Executable
+)
+
+func TestBitClear(t *testing.T) {
+	a := 7 // 0111
+	// 取消可读权限
+	a = a &^ Readable
+	t.Log(Readable & a == Readable, Writable & a == Writable, Executable & a == Executable)
+}
