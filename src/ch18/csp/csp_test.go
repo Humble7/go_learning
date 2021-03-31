@@ -48,3 +48,13 @@ func TestAsyncService(t *testing.T) {
 	t.Log(<- retCh)
 	time.Sleep(time.Second * 1)
 }
+
+func TestSelect(t *testing.T) {
+	select {
+	case ret := <-AsyncService():
+		t.Log(ret)
+	case <-time.After(time.Millisecond * 40):
+		t.Error("time out")
+
+	}
+}
