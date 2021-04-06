@@ -5,6 +5,7 @@ import (
 	"net_easy/tree"
 )
 
+// 通过组合的方式实现扩展
 type myTreeNode struct {
 	node *tree.Node
 }
